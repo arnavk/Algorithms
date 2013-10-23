@@ -6,13 +6,20 @@
 \usepackage{mathtools}
 \usepackage{algpseudocode}
 \usepackage{listings}
+\usepackage{graphicx}
+\renewcommand{\thesubsection}{\alph{subsection}}
 \begin{document}
 
-\title{CSC 401 - Advanced Algorithms Assignment}
+
+\begin{figure}[t]
+\includegraphics[width=\linewidth]{images/NTULogo}
+\end{figure}
+\title{CSC 401 - Advanced Topics in Algorithms}
 \author{Arnav Kumar}
 
 \maketitle
 
+\newpage
 \section{Question 1}
 
 \subsection{$A(n) = 3A(n/4) + n^{(3/4)}$}
@@ -56,6 +63,7 @@ Verification using Master Theorem,
 
 \end{proof}
 
+\newpage
 \subsection{$B(n) = B(n-2) + n\lg n$}
 $B(n) = \mathcal{O}(n^2\lg n)$
 \begin{proof}
@@ -86,6 +94,7 @@ B(n) & = \mathcal{O}(n^2\lg n)
 
 \end{proof}
 
+\newpage
 \subsection{$C(n) = C(\lceil n/3 \rceil) + \lceil n/2 \rceil$}
 $C(n) = \Theta(n)$
 \begin{proof}
@@ -210,6 +219,7 @@ Inspecting the above algorithm, we see that we by since $angleRotated$ starts fr
 \newline
 Therefore the total running time of the algorithm $= \mathcal{O}(n \lg n) + \mathcal{O}(n) = \mathcal{O}(n \lg n)$
 
+\newpage
 \subsection{Checking if two convex hulls intersect}
 
 Two convex hulls intersect if any one of the vertices of the first one lies strictly inside the other one. To do this, we first need to find which of the polygons is on the right of the other. We can do this by calculating their centroid (avg. of the x co-ordinates, avg. of the y co-ordinates). For the purposes of the pseudocode, let's assume the hull with m vertices is on the right. For each vertex for the left hull, we see if it lies inside the right hull. To see if a point lies inside a polygon, we draw a horizontal line from the vertex to just outside the right hull. We count the number of edges of the right hull this horizontal intersects. If it is even, then the vertex is outside the right hull, otherwise it's inside. Here is the pseudo code.
@@ -294,6 +304,7 @@ Inspecting the above algorithm, we see that to find if a point is lying inside a
 \newline
 Therefore the total running time of the algorithm $= \Theta(n+m) + \Theta(m) + \Theta(mn)$ \newline $= \Theta(mn)$
 
+\newpage
 \subsection{Nearest pair of vertices of two convex hulls}
 
 We shall use a slight modification of the rotating-callipers algorithm to find our answer. We will iteratively find all the anti-podal points between the polygons. A pair of anti-podal points between two convex polygons is defined a pair of points (one from each polygon) through which a pair of anti-parallel tangents can be drawn to the respective polygons which does not intersect any other edge of the polygon. We can generate all the antipodal points by first determining one pair and then rotating the tangents minimally along the sides of the polygon till they pass another set of antipodal points. In our algorithm, we can find our first anti-podal pair as the pair of points, first of which has the minimum y co-ordinate amongst the points of the first hull and the other the maximum y co-ordinate amongst the set of points in the other hull. Let's assume two methods $angle(line_a, line_b)$ that returns the angle between lines $line_a$ and $line_b$ and $distance(point_a, point_b)$ that returns the distance between points $point_a$ and $point_b$. The anti-podal pair with the minimum distance between them is our required pair. If there are many such pairs, we return the first one to be found.
@@ -501,7 +512,7 @@ T(n) & = \Theta(n)\\
 \textbf{Correctness} : This algorithm first tries to compute the fib4(n-1) and saves that in Soln[n-1]. This calculation involves recursively calling fib4(n-1) till fib4(1) which is known. Thereafter all the consecutive Soln[i] values are computed till Sol[n-1]. After which Soln[n-1] + Soln[n-2] is computed and returned. This is the correct value for fib4(n).
 
 \newpage
-\section{Question 3}
+\section{Question 4}
 \subsection{Finding maximum flow over an arbitrary n-source m-sink network}
 We transform the problem into the problem of maximizing flow in 1-source 1-sink  network by adding a super source leading to each of the n sources and a super sink to which each of the m sinks lead. If n is 1 or m is 1 then the respective super element need not be added. Each of these additional connections will have infinite capacity.
 
@@ -551,6 +562,28 @@ Therefore, the complexity of this algorithm is :
  & = \mathcal{O}(VE^2)
 \end{align*}
 
+\newpage
 \subsection{Algorithm in action}
+\includegraphics[width=\linewidth]{images/1}
+\includegraphics[width=\linewidth]{images/2}
+\includegraphics[width=\linewidth]{images/3}
+\includegraphics[width=\linewidth]{images/4}
+Therefore, max flow = 18.
+\begin{thebibliography}{9}
+
+\bibitem{url1}
+http://www.cs.cornell.edu/courses/cs4820/2010sp/handouts/edmondskarp.pdf
+
+\bibitem{url3}
+http://cgm.cs.mcgill.ca/~orm/rotcal.html
+
+\bibitem{url4}
+http://www.cs.uiuc.edu/class/sp07/cs473g/lectures/14-maxflowalgs.pdf
+
+\bibitem{url2}
+http://en.wikipedia.org/wiki/Edmonds–Karp\_algorithm/
+
+
+\end{thebibliography}
 
 \end{document}

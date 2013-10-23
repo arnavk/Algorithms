@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.10.23)  24 OCT 2013 03:43
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.10.23)  24 OCT 2013 05:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -213,18 +213,18 @@ Package: listings 2007/02/22 1.4 (Carsten Heinz)
 (./algorithms.aux)
 \openout1 = `algorithms.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
 
 (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -288,103 +288,143 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \c@lstlisting=\count125
-LaTeX Font Info:    Try loading font information for U+msa on input line 14.
+
+<images/NTULogo.png, id=1, 4552.00626pt x 1623.06375pt>
+File: images/NTULogo.png Graphic file (type png)
+
+<use images/NTULogo.png>
+Package pdftex.def Info: images/NTULogo.png used on input line 15.
+(pdftex.def)             Requested size: 345.0pt x 123.01236pt.
+LaTeX Font Info:    Try loading font information for U+msa on input line 20.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 14.
+LaTeX Font Info:    Try loading font information for U+msb on input line 20.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (102.48866pt too wide) in paragraph at lines 85--85
+{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./image
+s/NTULogo.png>] [2] [3]
+Overfull \hbox (102.48866pt too wide) in paragraph at lines 93--93
 [] 
  []
 
-[2] [3] [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 152--156
+[4] [5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 161--165
 
  []
 
-[6]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 204.
+[7]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 213.
 
  (/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 204.
-
-Underfull \hbox (badness 10000) in paragraph at lines 215--218
-
- []
-
-[7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 299--303
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 213.
+ [8]
+Underfull \hbox (badness 10000) in paragraph at lines 225--228
 
  []
 
 [9] [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 381--384
+Underfull \hbox (badness 10000) in paragraph at lines 310--314
 
  []
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 416--418
+[12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 392--395
 
  []
 
-[13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 454--456
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 427--429
 
  []
 
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 484--486
+[15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 465--467
 
  []
 
-[16]
-Overfull \hbox (1.52832pt too wide) in paragraph at lines 508--509
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 495--497
+
+ []
+
+[18]
+Overfull \hbox (1.52832pt too wide) in paragraph at lines 519--520
 []\OT1/cmr/m/n/10 We will use a re-fine-ment of the Ford-Fulkerson al-go-rithm 
 called the Edmunds-
  []
 
-[17] [18] (./algorithms.aux) ) 
+[19] [20] <images/1.png, id=87, 505.89pt x 250.9375pt>
+File: images/1.png Graphic file (type png)
+ <use images/1.png>
+Package pdftex.def Info: images/1.png used on input line 567.
+(pdftex.def)             Requested size: 345.0pt x 171.133pt.
+
+<images/2.png, id=88, 530.98375pt x 284.06125pt>
+File: images/2.png Graphic file (type png)
+ <use images/2.png>
+Package pdftex.def Info: images/2.png used on input line 568.
+(pdftex.def)             Requested size: 345.0pt x 184.56825pt.
+
+<images/3.png, id=89, 507.8975pt x 257.96375pt>
+File: images/3.png Graphic file (type png)
+ <use images/3.png>
+Package pdftex.def Info: images/3.png used on input line 569.
+(pdftex.def)             Requested size: 345.0pt x 175.23195pt.
+
+<images/4.png, id=90, 532.99126pt x 266.9975pt>
+File: images/4.png Graphic file (type png)
+ <use images/4.png>
+Package pdftex.def Info: images/4.png used on input line 570.
+(pdftex.def)             Requested size: 345.0pt x 172.82927pt.
+ [21 <./images/1.png> <./images/2.png>]
+Overfull \hbox (13.80637pt too wide) in paragraph at lines 575--576
+[]\OT1/cmr/m/n/10 http://www.cs.cornell.edu/courses/cs4820/2010sp/handouts/edmo
+ndskarp.pdf 
+ []
+
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+[22 <./images/3.png> <./images/4.png>] (./algorithms.aux) ) 
 Here is how much of TeX's memory you used:
- 4531 strings out of 493315
- 65410 string characters out of 6137903
- 150960 words of memory out of 5000000
- 7918 multiletter control sequences out of 15000+600000
+ 4563 strings out of 493315
+ 65853 string characters out of 6137903
+ 146981 words of memory out of 5000000
+ 7943 multiletter control sequences out of 15000+600000
  12150 words of font info for 47 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,13n,32p,1223b,856s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2013/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmmi7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr17.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr5.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.
-pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
-fb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
-></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-
-Output written on algorithms.pdf (18 pages, 227263 bytes).
+</usr/local/texlive/
+2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2
+013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/20
+13/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/20
+13/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/201
+3/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2013
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2013/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2013/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2013/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2013/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2013/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2013/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2013/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2013/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmti10.pfb>
+Output written on algorithms.pdf (22 pages, 1292977 bytes).
 PDF statistics:
- 134 PDF objects out of 1000 (max. 8388607)
- 95 compressed objects within 1 object stream
+ 155 PDF objects out of 1000 (max. 8388607)
+ 105 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
