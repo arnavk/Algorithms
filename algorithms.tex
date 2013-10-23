@@ -157,7 +157,7 @@ We shall use a slight modification of the rotating-callipers algorithm to find o
 \State $p_1 \gets $ \text{point with minimum y-co-ordinate}
 \State $p_2 \dots p_n\gets $ \text{points sorted CCW according to polar angle from $p_1$\dots(1)}
 \State $p_a \gets p_1 $
-\State $p_b \gets $\text{point with minimum y-co-ordinate}
+\State $p_b \gets $\text{point with maximum y-co-ordinate}
 \State $angleRotated \gets 0 $
 \State $maxDistance \gets distance(p_a, p_b)$
 \State $furthermostPair \gets (p_a, p_b) $
@@ -503,5 +503,54 @@ T(n) & = \Theta(n)\\
 \newpage
 \section{Question 3}
 \subsection{Finding maximum flow over an arbitrary n-source m-sink network}
-We will use a refinement of the Ford-Fulkerson algorithm called the Edmund-Karp Algorithm which uses Breadth-First Search
+We transform the problem into the problem of maximizing flow in 1-source 1-sink  network by adding a super source leading to each of the n sources and a super sink to which each of the m sinks lead. If n is 1 or m is 1 then the respective super element need not be added. Each of these additional connections will have infinite capacity.
+
+We will use a refinement of the Ford-Fulkerson algorithm called the Edmunds-Karp Algorithm which uses Breadth-First Search to choose the augmenting path with the smallest number of edges.
+
+The data structures we need are as follows:-
+\begin{itemize}
+\item Capacity Matrix, G[V][V], where $V = $ number of vertices, containing the capacity of the various nodes.
+\item Flow Matrix F[V][V] containing the status of flow in the current state of the Graph.
+\item S, and T, the indices of the super-source and super-sink respectively.
+\item A path between points is represented as an array containing indices of the nodes of the path. 
+\end{itemize}
+
+\begin{algorithmic}
+\Function{Endmunds-Karp}{$CapacityMatrix$ $G$}
+	\State \text{construct an empty flow matrix} $f$
+	\While {$G$ contains a path from $s$ to $t$}
+		\State $P \gets $ \text{$s - t$ path in $G$ with the minimum number of edges.}
+		\State \text{Augment the flow with $P$}
+		\State \text{Update $f$}
+		\State \text{Update $G$}
+	\EndWhile
+\EndFunction
+\end{algorithmic}
+
+\textbf{Analysis}: 
+\begin{itemize}
+\item Adding a super source and super destination takes $\mathcal{O}(n)$ and $\mathcal{O}(m)$ time respectively.
+\item Using BFS to find a path (with available capacity) from s to t with the least number of nodes. Breadth first search in a graph with V vertices and E edges takes $\mathcal{O}(V+E)$ time. Since every vertex is a part of at least one edge,  $V < E$ therefore, we can say approximate the time taken for the search is $\mathcal{O}(E)$.
+\item Number of augmentations is at most V x E because the lonest possible path can be of length V and in each augmentation, at least one of the E edges gets saturated. Therefore the theoretical maximum number of edges is VE and the while loop runs at most VE times.
+\end{itemize}
+
+Therefore, the complexity of the algorithm is :
+\begin{align*}
+ & = (VE)\mathcal{O}(E) + \mathcal{O}(n) + \mathcal{O}(m) \\
+ & = \mathcal{O}(VE^2)
+\end{align*}
+
+\subsection{Checking if flow is sustainable}
+We do something similar to the previous problem by defining a super-source leading to all the sources and a super sink to which all the sinks lead. After that we find the maximum from though this modified graph. If for this maximal flow, the outward flow from each original source node is $\geq$ it's production rate, the the network can sustain a flow where each source node meets it's production requirement. 
+
+For this algorithm, the complexity can be calculated as follows. We know from the previous problem that for the maximal flow, the complexity is $\mathcal{O}(VE^2)$. The additional step in this algorithm is to check if in the maximal flow all source points have met their capacity. This can be done in $\mathcal{O}(n)$ where n is the number of sources.
+
+Therefore, the complexity of this algorithm is :
+\begin{align*}
+ & = \mathcal{O}(VE^2) + \mathcal{O}(n) \\
+ & = \mathcal{O}(VE^2)
+\end{align*}
+
+\subsection{Algorithm in action}
+
 \end{document}
