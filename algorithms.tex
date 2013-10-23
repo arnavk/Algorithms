@@ -396,7 +396,9 @@ T(n) & = T(n-1) + \Theta(1) \\
 T(n) & = \Theta(n)\\
 \end{align*}
 
-Space complexity is $\mathcal{O}(n)$ because intermediate values are stored in an array of size n.
+\textbf{Space complexity} is $\mathcal{O}(n)$ because intermediate values are stored in an array of size n.
+
+\textbf{Correctness} : This algorithm first recursively calculates the value of fib1(n-1) which leads to a call trace which results in the calculation and storage of all the Soln[i] values from 2 to n-1. Then the other condition, if $(Soln == \infty)$ never being true. Each Soln[i] value has been calculated and is correct because it = sum of Soln[i-1] and Soln[i-2].
 
 \newpage
 \subsection{}
@@ -416,24 +418,25 @@ Observations : \\
 \begin{align*}
 T(0) & = \Theta(1) \\
 T(1) & = \Theta(1) \\
-T(n) & = T(n-1) + T(n-2) + \Theta(1) \\
-T(n-1) & > T(n-2) \\
-T(n) & = T(n-1)+T(n-2) + \Theta(1) \\
-& < 2T(n-1) + \Theta(1) \\
-& < 2(2T(n-2)) + 2\Theta(1) + \Theta(1) \\
-& \vdots \\
-& < 2^kT(n-k) + 2^{k-1}\Theta(1) + \cdots + 2\Theta(1) + \Theta(1) \\
-& < 2^kT(n-k) + \Theta(1)\sum_{i=0}^{k-1}2^i \\
-& < 2^kT(n-k) + \Theta(1) . (2^k)\\
-& < 2^kT(n-k) + 2^k\Theta(1)\\
-\intertext{taking n = k,}
-& < 2^n[T(0) + \Theta(1)] \\
-& < 2^n[\Theta(1) + \Theta(1)] \\
-& < 2.2^n\Theta(1) \\
-T(n) & = \mathcal{O}(2^n)\\
+T(n) & = T(n-1) + T(n-2) + 1 \\
+\intertext{Here let the time taken for all the arithmetic operations in the function be 1 unit} \\
+\intertext{Now, by substitution, no polynomial function $n^c$ will balance the equation, (where c is a contstant).}
+\intertext{Hence we try an exponential function. $c^n$, like $T(n) = c^n$}
+T(n) & = T(n-1) + T(n-2) + 1
+\intertext{This equation will be easier to work with if we eliminate the constant 1 unit. Trying, $T(n) = c^n - 1$}
+T(n) & = T(n-1) + T(n-2) + 1 \\
+c^n - 1 & = (c^{n-1} - 1) + (c^{n-2} - 1) + 1 \\
+c^n & = c^{n-1} + c^{n-2} \\
+\Rightarrow c^2 - c - 1 & = 0 \\
+\Rightarrow c & = \frac{1\pm\sqrt{5}}{2} \\
+\intertext {Therefore, }
+T(n) & = \Theta(c^n) \\
+& = \Theta((\frac{1+\sqrt{5}}{2})^n) \\
 \end{align*}
 
-Space complexity is $\mathcal{O}(n)$ because intermediate values are stored in an array of size n.
+\textbf{Space complexity} is $\mathcal{O}(n)$ because intermediate values are stored in an array of size n.
+
+\textbf{Correctness} : For each fib2(n) calculation, this algorithm recursively computes and saves fib2(n-1) and fib2(n-2) and saves them in Soln[n-1] and Soln[n-2] respectively. So though this method is more complex than the others in the question and re-computes all the intermediate values and doesn't make full use of memorization for optimization, it is correct.
 
 \newpage
 \subsection{}
@@ -463,8 +466,9 @@ T(n) & = T(n-1) + \Theta(1) \\
 T(n) & = \Theta(n)\\
 \end{align*}
 
-Space complexity is $\mathcal{O}(n)$ because intermediate values are stored in an array of size n.
+\textbf{Space complexity} is $\mathcal{O}(n)$ because intermediate values are stored in an array of size n.
 
+\textbf{Correctness} : This algorithm first tries to compute the fib3(n-1) and saves that in Soln[n]. This calculation involves recursively calling fib3(n-1) till fib3(1) which is known. Thereafter all the consecutive Soln[i] values are computed = Soln[i-1] + Soln[i-2] till Soln[n-1]. After which Soln[n] = Soln[n-1] + Soln[n-2] is computed and returned. This is the correct value for fib3(n).
 \newpage
 \subsection{}
 \begin{lstlisting}
@@ -492,6 +496,12 @@ T(n) & = T(n-1) + \Theta(1) \\
 T(n) & = \Theta(n)\\
 \end{align*}
 
-Space complexity is $\mathcal{O}(n)$ because intermediate values are stored in an array of size n.
+\textbf{Space complexity} is $\mathcal{O}(n)$ because intermediate values are stored in an array of size n.
 
+\textbf{Correctness} : This algorithm first tries to compute the fib4(n-1) and saves that in Soln[n-1]. This calculation involves recursively calling fib4(n-1) till fib4(1) which is known. Thereafter all the consecutive Soln[i] values are computed till Sol[n-1]. After which Soln[n-1] + Soln[n-2] is computed and returned. This is the correct value for fib4(n).
+
+\newpage
+\section{Question 3}
+\subsection{Finding maximum flow over an arbitrary n-source m-sink network}
+We will use a refinement of the Ford-Fulkerson algorithm called the Edmund-Karp Algorithm which uses Breadth-First Search
 \end{document}
