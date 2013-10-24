@@ -7,6 +7,7 @@
 \usepackage{algpseudocode}
 \usepackage{listings}
 \usepackage{graphicx}
+\usepackage{hyperref}
 \renewcommand{\thesubsection}{\alph{subsection}}
 \begin{document}
 
@@ -15,7 +16,7 @@
 \includegraphics[width=\linewidth]{images/NTULogo}
 \end{figure}
 \title{CSC 401 - Advanced Topics in Algorithms}
-\author{Arnav Kumar}
+\author{Arnav Kumar (U1020584A)}
 
 \maketitle
 
@@ -566,26 +567,25 @@ Therefore, the complexity of this algorithm is :
 
 \newpage
 \subsection{Algorithm in action}
+Here is the initial graph:
+\newline
 \includegraphics[width=\linewidth]{images/1}
+Choosing path $S \rightarrow a \rightarrow d \rightarrow T$ with flow $= 5$
+\newline
 \includegraphics[width=\linewidth]{images/2}
+Choosing path $S \rightarrow b \rightarrow c \rightarrow  e \rightarrow T$ with flow $= 7$
+\newline
 \includegraphics[width=\linewidth]{images/3}
+Choosing path $S \rightarrow a \rightarrow c \rightarrow  d \rightarrow T$ with flow $= 6$
+\newline
 \includegraphics[width=\linewidth]{images/4}
 Therefore, max flow = 18.
-\begin{thebibliography}{9}
-
-\bibitem{url1}
-http://www.cs.cornell.edu/courses/cs4820/2010sp/handouts/edmondskarp.pdf
-
-\bibitem{url3}
-http://cgm.cs.mcgill.ca/~orm/rotcal.html
-
-\bibitem{url4}
-http://www.cs.uiuc.edu/class/sp07/cs473g/lectures/14-maxflowalgs.pdf
-
-\bibitem{url2}
-http://en.wikipedia.org/wiki/Edmonds–Karp\_algorithm/
-
-
-\end{thebibliography}
+\section{References}
+\begin{itemize}
+\item \url{http://www.cs.cornell.edu/courses/cs4820/2010sp/handouts/edmondskarp.pdf}
+\item \url{http://cgm.cs.mcgill.ca/~orm/rotcal.html}
+\item \url{http://www.cs.uiuc.edu/class/sp07/cs473g/lectures/14-maxflowalgs.pdf}
+\item \url{http://en.wikipedia.org/wiki/Edmonds–Karp_algorithm/}
+\end{itemize}
 
 \end{document}
