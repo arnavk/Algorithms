@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.10.23)  24 OCT 2013 05:16
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.10.23)  24 OCT 2013 17:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -308,55 +308,55 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./image
 s/NTULogo.png>] [2] [3]
-Overfull \hbox (102.48866pt too wide) in paragraph at lines 93--93
+Overfull \hbox (62.20627pt too wide) in paragraph at lines 94--94
 [] 
  []
 
 [4] [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 161--165
+Underfull \hbox (badness 10000) in paragraph at lines 162--166
 
  []
 
 [7]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 213.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 214.
 
  (/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 213.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 214.
  [8]
-Underfull \hbox (badness 10000) in paragraph at lines 225--228
+Underfull \hbox (badness 10000) in paragraph at lines 226--229
 
  []
 
 [9] [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 310--314
+Underfull \hbox (badness 10000) in paragraph at lines 311--315
 
  []
 
 [12] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 392--395
+Underfull \hbox (badness 10000) in paragraph at lines 393--396
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 427--429
+Underfull \hbox (badness 10000) in paragraph at lines 428--430
 
  []
 
 [15] [16]
-Underfull \hbox (badness 10000) in paragraph at lines 465--467
+Underfull \hbox (badness 10000) in paragraph at lines 466--468
 
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 495--497
+Underfull \hbox (badness 10000) in paragraph at lines 496--498
 
  []
 
 [18]
-Overfull \hbox (1.52832pt too wide) in paragraph at lines 519--520
+Overfull \hbox (1.52832pt too wide) in paragraph at lines 520--521
 []\OT1/cmr/m/n/10 We will use a re-fine-ment of the Ford-Fulkerson al-go-rithm 
 called the Edmunds-
  []
@@ -364,28 +364,28 @@ called the Edmunds-
 [19] [20] <images/1.png, id=87, 505.89pt x 250.9375pt>
 File: images/1.png Graphic file (type png)
  <use images/1.png>
-Package pdftex.def Info: images/1.png used on input line 567.
+Package pdftex.def Info: images/1.png used on input line 569.
 (pdftex.def)             Requested size: 345.0pt x 171.133pt.
 
 <images/2.png, id=88, 530.98375pt x 284.06125pt>
 File: images/2.png Graphic file (type png)
  <use images/2.png>
-Package pdftex.def Info: images/2.png used on input line 568.
+Package pdftex.def Info: images/2.png used on input line 570.
 (pdftex.def)             Requested size: 345.0pt x 184.56825pt.
 
 <images/3.png, id=89, 507.8975pt x 257.96375pt>
 File: images/3.png Graphic file (type png)
  <use images/3.png>
-Package pdftex.def Info: images/3.png used on input line 569.
+Package pdftex.def Info: images/3.png used on input line 571.
 (pdftex.def)             Requested size: 345.0pt x 175.23195pt.
 
 <images/4.png, id=90, 532.99126pt x 266.9975pt>
 File: images/4.png Graphic file (type png)
  <use images/4.png>
-Package pdftex.def Info: images/4.png used on input line 570.
+Package pdftex.def Info: images/4.png used on input line 572.
 (pdftex.def)             Requested size: 345.0pt x 172.82927pt.
  [21 <./images/1.png> <./images/2.png>]
-Overfull \hbox (13.80637pt too wide) in paragraph at lines 575--576
+Overfull \hbox (13.80637pt too wide) in paragraph at lines 577--578
 []\OT1/cmr/m/n/10 http://www.cs.cornell.edu/courses/cs4820/2010sp/handouts/edmo
 ndskarp.pdf 
  []
@@ -401,7 +401,7 @@ Here is how much of TeX's memory you used:
  7943 multiletter control sequences out of 15000+600000
  12150 words of font info for 47 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,13n,32p,1223b,856s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,13n,32p,1433b,856s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/
 2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2
 013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/20
@@ -421,7 +421,7 @@ ype1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmti10.pfb>
-Output written on algorithms.pdf (22 pages, 1292977 bytes).
+Output written on algorithms.pdf (22 pages, 1294087 bytes).
 PDF statistics:
  155 PDF objects out of 1000 (max. 8388607)
  105 compressed objects within 2 object streams

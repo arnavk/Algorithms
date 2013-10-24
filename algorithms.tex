@@ -34,7 +34,7 @@ Inspection using Iteration method
 	& \vdots \\
 	& = 3^kA(\frac{n}{4^k}) + 3^{k-1}(\frac{n}{4^{k-1}})^{3/4} + \cdots + 3(\frac{n}{4})^{3/4} + n^{3/4} \\
 	& = 3^kA(1) + \sum_{i=0}^{k-1} 3^{k-1}(\frac{n}{4^{k-1}})^{3/4} \\
-\intertext{Given that $A(1)$ is a constant} 
+\intertext{Given that $A(1)$ is a constant (say $C_1$)} 
 	& = 3^kC_1 + n^{3/4}\sum_{i=0}^{k-1}\frac{3^i}{4^{3i/4}} 
 \intertext{$\sum_{i=0}^{k-1}3^i/(4^{3i/4})$ is a numerical constant, taking it as $C_2$}
 	& = {(4^k)}^{log_34}C_1 + n^{3/4}C_2 \\
@@ -72,9 +72,10 @@ $B(n) = \mathcal{O}(n^2\lg n)$
 B(n) & = B(n-2) + n\lg n \\
 & = B(n-4) + (n-2)\lg(n-2) + n\lg n \\
 & \vdots \\
-& = B(n-2k) + (n-2k+2)\lg(n-2k+2)+ \cdots + (n-2)\lg(n-2) + n\lg n \\
+& = B(n-2k) + (n-2k+2)\lg(n-2k+2)+ \cdots \\
+& + \cdots + (n-2)\lg(n-2) + n\lg n \\
 \intertext{Choosing k such that $n - 2k = 1$ or $ n - 2k = 0$}
-\intertext{Therefore, $B(n-2k) = constant$($= c$, say)}
+\intertext{Therefore $B(n-2k) = constant$($= c$, say)}
 B(n) & = c + (n-2k+2)\lg(n-2k+2)+ \cdots + (n-2)\lg(n-2) + n\lg n \\
 \intertext{$f(n) = n\lg n$, being the product of two increasing functions, $f_1(n) = n$ and $f_2 = \lg n$, is a strictly increasing function}
 \intertext {We can therefore say that }
@@ -158,7 +159,7 @@ C'(n) & = \Theta(n)
 \newpage
 \section{Question 2}
 \subsection{Farthermost pair of vertices of a convex polygon}
-We shall use a slight modification of the rotating-callipers algorithm to find our answer. We will iteratively find all the anti-podal points of the polygon. A pair of anti-podal points is defined a pair of points through which two parallel tangents can be drawn to the polygon which does not intersect any other edge of the polygon. We can generate all the antipodal points by first determining one pair and then rotating the tangents minimally along the sides of the polygon till they pass another set of antipodal points. In our algorithm, we can find our first anti-podal pair as the pair of points, first of which has the minimum y co-ordinate and the other the maximum y co-ordinate amongst the set of points. Let's assume two methods $angle(line_a, line_b)$ that returns the angle between lines $line_a$ and $line_b$ and $distance(point_a, point_b)$ that returns the distance between points $point_a$ and $point_b$. The anti-podal pair with the maximum distance between them is our required pair. If there are many such pairs, we return the first one to be found. 
+We shall use a slight modification of the rotating-callipers algorithm to find our answer. We will iteratively find all the anti-podal points of the polygon. A pair of anti-podal points is defined a pair of points through which two parallel tangents can be drawn to the polygon each of which does not intersect any other edge of the polygon. We can generate all the antipodal points by first determining one pair and then rotating the tangents minimally along the sides of the polygon about one of the points of this anti-podal pair till they pass another set of antipodal points. In our algorithm, we can find our first anti-podal pair as the pair of points, first of which has the minimum y co-ordinate and the other the maximum y co-ordinate amongst the set of vertices of the polygon. We stop iterating when the total angle by which we have rotated the parallel lines becomes $\geq \pi$ because at this stage, we are back at the first anti-podal pair and each of the tangents will now iterate over points that have been iterated over by the other tangent. Let's assume two methods $angle(line_a, line_b)$ that returns the angle between lines $line_a$ and $line_b$ and $distance(point_a, point_b)$ that returns the distance between points $point_a$ and $point_b$. The anti-podal pair with the maximum distance between them is our required pair. If there are many such pairs, we return the first one to be found. 
 \newline Here is the pseudo-code:
 \newline
 \begin{algorithmic}
@@ -173,7 +174,7 @@ We shall use a slight modification of the rotating-callipers algorithm to find o
 \State $supportingLine_a \gets $ \text{horizontal vector passing thro' $p_a$ towards +ve X axis}
 \State $supportingLine_b \gets $ \text{horizontal vector passing thro' $p_b$ towards -ve X axis}
 \While {$angleRotated < \pi$}
-	\State $edge_a \gets edge(p_a, p_{a+1})$
+	\State $edge_a \gets edge(p_a, p_{a+1})$\text{(This index wraps around. $p_{n+1} = p_1$)}
 	\State $edge_b \gets edge(p_b, p_{b+1})$
 	\State $angle_a \gets angle(supportingLine_a, edge_a)$
 	\State $angle_b \gets angle(supportingLine_b, edge_b)$
@@ -182,13 +183,13 @@ We shall use a slight modification of the rotating-callipers algorithm to find o
 			\State $maxDistance \gets distance(p_{a+1}, p_b)$
 			\State $furthermostPair \gets (p_{a+1}, p_b) $
 		\EndIf
-		\State $p_a \gets p_{a+1} $ \text{(This index wraps around. $p_{n+1} = p_1$)}
+		\State $p_a \gets p_{a+1} $
 	\ElsIf {$angle_b < angle_a$}
 		\If{$distance(p_a, p_{b+1}) > maxDistance$}
 			\State $maxDistance \gets distance(p_a, p_{b+1})$
 			\State $furthermostPair \gets (p_a, p_{b+1}) $
 		\EndIf
-		\State $p_b \gets p_{b+1} $ \text{(This index also wraps around. $p_{n+1} = p_1$)}
+		\State $p_b \gets p_{b+1} $
 	\Else \text{ (i.e. $angle_a = angle_b$) }
 		\If{$distance(p_{a+1}, p_b) > maxDistance$}
 			\State $maxDistance \gets distance(p_{a+1}, p_b)$
@@ -215,14 +216,14 @@ This algorithm works in $\mathcal{O}(n \lg n) time$. Let's analyze why. There ar
 \end{itemize}
 We know that sorting vertices in CCW order from $p_1$ takes $\mathcal{O}(n \lg n)$ time.
 \newline 
-Inspecting the above algorithm, we see that we by since $angleRotated$ starts from 0 and ends at $\pi$, we can conclude that the two point variables, $p_a$ and $p_b$ iterate over every point at most once. Therefore, the number of iterations is $\mathcal{O}(n)$.
+Inspecting the above algorithm, we see that we by since $angleRotated$ starts from 0 and ends at $\pi$, we can conclude that the two point variables, $p_a$ and $p_b$ iterate over every point at most once (except for the initial anti-podal pair which will also be the last pair we inspect before terminating). Therefore, the number of iterations is $\mathcal{O}(n)$.
 \newline
 Therefore the total running time of the algorithm $= \mathcal{O}(n \lg n) + \mathcal{O}(n) = \mathcal{O}(n \lg n)$
 
 \newpage
 \subsection{Checking if two convex hulls intersect}
 
-Two convex hulls intersect if any one of the vertices of the first one lies strictly inside the other one. To do this, we first need to find which of the polygons is on the right of the other. We can do this by calculating their centroid (avg. of the x co-ordinates, avg. of the y co-ordinates). For the purposes of the pseudocode, let's assume the hull with m vertices is on the right. For each vertex for the left hull, we see if it lies inside the right hull. To see if a point lies inside a polygon, we draw a horizontal line from the vertex to just outside the right hull. We count the number of edges of the right hull this horizontal intersects. If it is even, then the vertex is outside the right hull, otherwise it's inside. Here is the pseudo code.
+Two convex hulls intersect if any one of the vertices of the first one lies strictly inside the other one. To do this, we first need to find which of the polygons is on the right of the other. We can do this by calculating their centroid (avg. of the x co-ordinates, avg. of the y co-ordinates). For the purposes of the pseudocode, let's assume the hull with m vertices is on the right. For each vertex for the left hull, we see if it lies inside the right hull. To see if a point lies inside a polygon, we draw a horizontal line from the vertex to just outside the right hull. We count the number of edges of the right hull this horizontal intersects. This will be either 1 or 2 because both are convex hulls. If it is $ = 2$, then the vertex is outside the right hull, otherwise it's inside. Here is the pseudo code.
 \newline
 \begin{algorithmic}
 \Function {checkPolygonIntersection}{$ConvexHull$ $A$, $ConvexHull$ $B$}
@@ -253,7 +254,7 @@ Two convex hulls intersect if any one of the vertices of the first one lies stri
 			\State $count \gets count+1$
 		\EndIf
 	\EndFor
-	\If{$isEven(count)$}
+	\If{$count == 2$}
 		\State \Return $false$
 	\Else
 		\State \Return $true$
@@ -300,14 +301,14 @@ This algorithm works in $\Theta(mn) time$. Let's analyze why. These are main tas
   \item Iterating through the vertices of the left hull and seeing if the vertex lies inside the the right hull
 \end{itemize}
 
-Inspecting the above algorithm, we see that to find if a point is lying inside a polygon of m sides, takes $\Theta (m)$ time because we iterate over all it's $n$ edges once. We do this for each of the $n$ vertices of the left hull, taking $\Theta (m)$ each time, totally taking $n*\Theta(m) = \Theta(mn)$ time.
+Inspecting the above algorithm, we see that to find if a point is lying inside a polygon of m sides, takes $\Theta (m)$ time because we iterate over all it's $m$ edges once. We do this for each of the $n$ vertices of the left hull, taking $\Theta (m)$ each time, totally taking $n*\Theta(m) = \Theta(mn)$ time.
 \newline
 Therefore the total running time of the algorithm $= \Theta(n+m) + \Theta(m) + \Theta(mn)$ \newline $= \Theta(mn)$
 
 \newpage
 \subsection{Nearest pair of vertices of two convex hulls}
 
-We shall use a slight modification of the rotating-callipers algorithm to find our answer. We will iteratively find all the anti-podal points between the polygons. A pair of anti-podal points between two convex polygons is defined a pair of points (one from each polygon) through which a pair of anti-parallel tangents can be drawn to the respective polygons which does not intersect any other edge of the polygon. We can generate all the antipodal points by first determining one pair and then rotating the tangents minimally along the sides of the polygon till they pass another set of antipodal points. In our algorithm, we can find our first anti-podal pair as the pair of points, first of which has the minimum y co-ordinate amongst the points of the first hull and the other the maximum y co-ordinate amongst the set of points in the other hull. Let's assume two methods $angle(line_a, line_b)$ that returns the angle between lines $line_a$ and $line_b$ and $distance(point_a, point_b)$ that returns the distance between points $point_a$ and $point_b$. The anti-podal pair with the minimum distance between them is our required pair. If there are many such pairs, we return the first one to be found.
+We shall use a slight modification of the rotating-callipers algorithm to find our answer. We will iteratively find all the anti-podal points between the polygons. A pair of anti-podal points between two convex polygons is defined a pair of points (one from each polygon) through which a pair of anti-parallel tangents can be drawn to the respective polygons which does not intersect any other edge of that polygon. We can generate all the antipodal points by first determining one pair and then rotating the tangents minimally along the sides of the polygon till they pass another set of antipodal points. In our algorithm, we can find our first anti-podal pair as the pair of points, first of which has the minimum y co-ordinate amongst the points of the first hull and the other the maximum y co-ordinate amongst the set of points in the other hull. We stop iterating when the total angle by which the tangents have been rotated $\geq 2\pi$ because at this stage, all points of both the convex hulls have been iterated over by the respective turning tangent. Let's assume two methods $angle(line_a, line_b)$ that returns the angle between lines $line_a$ and $line_b$ and $distance(point_a, point_b)$ that returns the distance between points $point_a$ and $point_b$. The anti-podal pair with the minimum distance between them is our required pair. If there are many such pairs, we return the first one to be found.
 \newline 
 Here is the pseudo-code:
 \newline
@@ -316,9 +317,9 @@ Here is the pseudo-code:
 \State $n \gets $\text{number of vertices in $P$}
 \State $m \gets $\text{number of vertices in $Q$}
 \State $p_1 \gets $ \text{point in $P$ with minimum y-co-ordinate}
-\State $p_2 \dots p_n\gets $ \text{points sorted CCW according to polar angle from $p_1$\dots(1)}
+\State $p_2 \dots p_n\gets $ \text{points sorted CCW according to polar angle from $p_1$}
 \State $q_1 \gets $ \text{point in $Q$ with maximum y-co-ordinate}
-\State $q_2 \dots q_n\gets $ \text{points sorted CCW according to polar angle from $q_1$\dots(1)}
+\State $q_2 \dots q_n\gets $ \text{points sorted CCW according to polar angle from $q_1$}
 
 \State $p_a \gets p_1 $
 \State $q_b \gets q_1 $
@@ -328,8 +329,8 @@ Here is the pseudo-code:
 \State $supportingLine_a \gets $ \text{horizontal vector passing thro' $p_a$ towards +ve X axis}
 \State $supportingLine_b \gets $ \text{horizontal vector passing thro' $q_b$ towards -ve X axis}
 \While {$angleRotated < 2\pi$}
-	\State $edge_a \gets edge(p_a, p_{a+1})$
-	\State $edge_b \gets edge(q_b, q_{b+1})$
+	\State $edge_a \gets edge(p_a, p_{a+1})$\text{(This index wraps around. $p_{n+1} = p_1$)}
+	\State $edge_b \gets edge(q_b, q_{b+1})$\text{(This index wraps around. $q_{m+1} = q_1$)}
 	\State $angle_a \gets angle(supportingLine_a, edge_a)$
 	\State $angle_b \gets angle(supportingLine_b, edge_b)$
 	\If {$angle_a < angle_b$} 
@@ -337,13 +338,13 @@ Here is the pseudo-code:
 			\State $minDistance\gets distance(p_{a+1}, q_b)$
 			\State $nearestPair \gets (p_{a+1}, q_b) $
 		\EndIf
-		\State $p_a \gets p_{a+1} $ \text{(This index wraps around. $p_{n+1} = p_1$)}
+		\State $p_a \gets p_{a+1} $
 	\ElsIf {$angle_b < angle_a$}
 		\If{$distance(p_a, q_{b+1}) < minDistance $}
 			\State $minDistance \gets distance(p_a, q_{b+1})$
 			\State $nearestPair \gets (p_a, q_{b+1}) $
 		\EndIf
-		\State $p_b \gets q_{b+1} $ \text{(This index also wraps around. $q_{m+1} = q_1$)}
+		\State $p_b \gets q_{b+1} $
 	\Else \text{ (i.e. $angle_a = angle_b$) }
 		\If{$distance(p_{a+1}, q_b) < minDistance$}
 			\State $minDistance \gets distance(p_{a+1}, q_b)$
@@ -356,7 +357,7 @@ Here is the pseudo-code:
 			\State $nearestPair \gets (p_{a+1}, q_{b+1}) $
 		\EndIf
 		\State $p_a \gets p_{a+1} $ 
-		\State $q_b \gets q_{b+1} $ \text{(These indices wrap around)}	
+		\State $q_b \gets q_{b+1} $
 	\EndIf
 	\State $angleRotated \gets angleRotated + min(angle_a, angle_b)$
 \EndWhile
@@ -391,7 +392,7 @@ int fib1(n)
 
 Let T(n) be the time required to compute fib1(n). \\
 Observations : \\
-If n$\geq 2$, the recursive call fib1(n-1) is called. That in turn computes Soln[n-2], so Soln[n-2] will never be $\infty$ and the statement Soln[n-2] = fib (n-2) is never executed and can be ignored.\\
+If n$\geq 2$, the recursive call fib1(n-1) is called. That in turn computes Soln[n-2], so Soln[n-2] will never be $\infty$ and the statement Soln[n-2] = fib (n-2) is never executed and can be ignored for our calculation.\\
 
 Therefore, 
 \begin{align*}
@@ -447,7 +448,7 @@ T(n) & = \Theta(c^n) \\
 
 \textbf{Space complexity} is $\mathcal{O}(n)$ because intermediate values are stored in an array of size n.
 
-\textbf{Correctness} : For each fib2(n) calculation, this algorithm recursively computes and saves fib2(n-1) and fib2(n-2) and saves them in Soln[n-1] and Soln[n-2] respectively. So though this method is more complex than the others in the question and re-computes all the intermediate values and doesn't make full use of memorization for optimization, it is correct.
+\textbf{Correctness} : For each fib2(n) calculation, this algorithm recursively computes and saves fib2(n-1) and fib2(n-2) and saves them in Soln[n-1] and Soln[n-2] respectively before returning their sum. So though this method is more complex than the others in the question and re-computes all the intermediate values and doesn't make full use of memorization for optimization, it is correct.
 
 \newpage
 \subsection{}
@@ -521,7 +522,7 @@ We will use a refinement of the Ford-Fulkerson algorithm called the Edmunds-Karp
 The data structures we need are as follows:-
 \begin{itemize}
 \item Capacity Matrix, G[V][V], where $V = $ number of vertices, containing the capacity of the various nodes.
-\item Flow Matrix F[V][V] containing the status of flow in the current state of the Graph.
+\item Flow Matrix $f$[V][V] containing the status of flow in the current state of the Graph.
 \item S, and T, the indices of the super-source and super-sink respectively.
 \item A path between points is represented as an array containing indices of the nodes of the path. 
 \end{itemize}
@@ -540,25 +541,26 @@ The data structures we need are as follows:-
 
 \textbf{Analysis}: 
 \begin{itemize}
-\item Adding a super source and super destination takes $\mathcal{O}(n)$ and $\mathcal{O}(m)$ time respectively.
+\item Adding a super source and super destination takes $\mathcal{O}(n)$ and $\mathcal{O}(m)$ time respectively because it takes $\mathcal{O}(1)$ per node connected to the source or sink. $\mathcal{O}(n) + \mathcal{O}(m)$ can be approximated to $\mathcal{O}(V)$ because $m+n \leq V$
 \item Using BFS to find a path (with available capacity) from s to t with the least number of nodes. Breadth first search in a graph with V vertices and E edges takes $\mathcal{O}(V+E)$ time. Since every vertex is a part of at least one edge,  $V < E$ therefore, we can say approximate the time taken for the search is $\mathcal{O}(E)$.
-\item Number of augmentations is at most V x E because the lonest possible path can be of length V and in each augmentation, at least one of the E edges gets saturated. Therefore the theoretical maximum number of edges is VE and the while loop runs at most VE times.
+\item Number of augmentations is at most V x E because the longest possible path can be of length V and in each augmentation, at least one of the E edges gets saturated. So in the worst case where the path of length V, in each iteration, one of the E edges will get saturated, so in total there will be VE augmentations. Therefore the theoretical maximum number of edges augmented is VE and the while loop runs at most VE times.
+\item The max flow is calculated by iterating over the m-sinks of the initial graph and seeing the flow in each of those nodes in the transformed graph. This can be done in $\mathcal{O}(m)$ time and is approximated to $\mathcal{O}(V)$ because $m < V$.
 \end{itemize}
 
 Therefore, the complexity of the algorithm is :
 \begin{align*}
- & = (VE)\mathcal{O}(E) + \mathcal{O}(n) + \mathcal{O}(m) \\
+ & = (VE)\mathcal{O}(E) + \mathcal{O}(V) + \mathcal{O}(V) \\
  & = \mathcal{O}(VE^2)
 \end{align*}
 
 \subsection{Checking if flow is sustainable}
 We do something similar to the previous problem by defining a super-source leading to all the sources and a super sink to which all the sinks lead. After that we find the maximum from though this modified graph. If for this maximal flow, the outward flow from each original source node is $\geq$ it's production rate, the the network can sustain a flow where each source node meets it's production requirement. 
 
-For this algorithm, the complexity can be calculated as follows. We know from the previous problem that for the maximal flow, the complexity is $\mathcal{O}(VE^2)$. The additional step in this algorithm is to check if in the maximal flow all source points have met their capacity. This can be done in $\mathcal{O}(n)$ where n is the number of sources.
+For this algorithm, the complexity can be calculated as follows. We know from the previous problem that for the maximal flow, the complexity is $\mathcal{O}(VE^2)$. The additional step in this algorithm is to check if in the maximal flow all source points have met their capacity. This can be done in $\mathcal{O}(n)$ where n is the number of sources. This can be approximated to $\mathcal{O}(V)$ because $n < V$
 
 Therefore, the complexity of this algorithm is :
 \begin{align*}
- & = \mathcal{O}(VE^2) + \mathcal{O}(n) \\
+ & = \mathcal{O}(VE^2) + \mathcal{O}(V) \\
  & = \mathcal{O}(VE^2)
 \end{align*}
 
